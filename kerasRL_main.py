@@ -14,7 +14,7 @@ from rl.policy import LinearAnnealedPolicy, EpsGreedyQPolicy
 
 def create_env():
     env_name = 'CartPole-v1'
-    env = gym.make(env_name)
+    env = gym.make(env_name, render_mode='human')
     return env
 
 
@@ -35,7 +35,6 @@ def create_nn(env):
 
     model.add(Dense(nb_actions))  # Final output layer of two actions
     model.add(Activation('linear'))
-    print(model.summary())
 
     return model
 
